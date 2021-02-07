@@ -1,0 +1,146 @@
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title></title>
+  <script language="JavaScript" src="jquery-1.4.2.min.js"></script>
+</head>
+<body>
+<!--table 一行一列：table 三行一列：table 一行一列：table 三行一列：table-->
+<table width="156">
+  <tr>
+    <td>
+      <table width="152">
+        <tr width="152">
+          <td>
+            <table width="152">
+              <tr>
+                <td>
+                  <table width="98%" align="center">
+                    <tr style="color:red;background:blue" onClick="show('1') ">
+                      <td><img src="./ui/images/yonghu.png"></td>
+                      <td>用户管理</td>
+                      <td><img src="./ui/images/zhankai.png"></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr id="tr0_1" style="DISPLAY: none">
+                <td>
+                  <table width="90%" align="center">
+                    <tr>
+                      <td><img src="./ui/images/yonghuxinxi.png"></td>
+                      <td>用户信息</td>
+                    </tr>
+                  </table>
+                  <table width="90%" align="center">
+                    <tr>
+                      <td><img src="./ui/images/juesequanxian.png"></td>
+                      <td>角色权限</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr width="152">
+          <td>
+            <table width="152">
+              <tr>
+                <td>
+                  <table width="98%" align="center">
+                    <tr style="color:red;background:blue" onClick="show('2') ">
+                      <td><img src="./ui/images/kehu.png"></td>
+                      <td>客户管理</td>
+                      <td><img src="./ui/images/zhankai.png"></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr id="tr0_2" style="DISPLAY: none">
+                <td><!-- 一列两个table-->
+                  <table width="90%" align="center">
+                    <tr>
+                      <td><img src="./ui/images/kehuxinxi.png"></td>
+                      <td>客户信息</td>
+                    </tr>
+                  </table>
+                  <table width="90%" align="center">
+                    <tr>
+                      <td><img src="./ui/images/lianxiren.png"></td>
+                      <td>联系人列表</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr width="152">
+          <td>
+            <table width="152">
+              <tr>
+                <td>
+                  <table width="98%" align="center">
+                    <tr style="color:red;background:blue" onClick="show('3')">
+                      <td><img src="./ui/images/xitong.png"></td>
+                      <td>系统管理</td>
+                      <td><img src="./ui/images/zhankai.png"></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr id="tr0_3" style="DISPLAY: none">
+                <td>
+                  <table width="90%" align="center">
+                    <tr>
+                      <td><img src="./ui/images/xitongrizhi.png"></td>
+                      <td>系统日志</td>
+                    </tr>
+                  </table>
+                  <table width="90%" align="center">
+                    <tr>
+                      <td><img src="./ui/images/shujuzidian.png"></td>
+                      <td>数据字典</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+<script language="JavaScript">
+  <!--js dom: 根据tr0_id, id的值，进行操作。得到tr的length，遍历，判断id值，根据传入的id值，拼装tr0_id,-->
+    <!--拿到对应的tr元素，设置 显示或隐藏 -->
+  function show(id){
+    //使用循环遍历找到需要控制的所有隐藏的tr
+    var $tr = $("tr[id^='tr0']");
+// alert($tr.length);
+    $tr.each(function(index,domEle){
+      //查找当前onclick操作的tr
+      //检查 每次循环遍历 操作要对应的tr，隐藏的，就三个，看看是哪一个
+      //
+      if(id==index+1){
+        //如果当前的tr处于隐藏状态，就得显示
+        if($(this).is(":hidden")){
+          $(this).attr("style","DISPLAY: block");
+        }
+        //如果当前的tr处于显示状态，就得隐藏
+        else{
+          $(this).attr("style","DISPLAY: none");
+        }
+      }
+      <!--把其他的打开的 隐藏 每次都会遍历-->
+      else{
+        //将不选择的tr都隐藏
+        $(domEle).attr("style","DISPLAY: none");
+      }
+    })
+  }
+</script>
+</html>

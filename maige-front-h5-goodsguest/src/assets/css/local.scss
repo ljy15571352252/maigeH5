@@ -1,0 +1,55 @@
+/**
+ * 局部scss样式和$变量，需要在目标组件内部css里按需引入的样式（非全局）
+ * 使用方式,在目标组件内部style标签内引入(注意style引入需要末尾分号)，@import "~assets/css/local.scss";或@import "@/assets/css/local.scss";
+ */
+
+// 页面的主题色,目前为京东红
+$mainColor: #ff3a44;
+// 页面的灰色底色
+$lightColor: #f5f8fc;
+
+// 单行文字省略
+@mixin ellipsis {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+// 多行文字省略 value为要省略的行数
+@mixin ellipsis2($value: 2) {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: $value;
+}
+
+// 空心按钮样式
+.van-button--default {
+  background: #fff;
+  border: 1px solid #fc332e;
+  color: #fc332e;
+}
+
+// 实心按钮颜色样式
+.van-button--primary {
+  background: #fc332e;
+  border: 1px solid #fc332e;
+  color: #fff;
+}
+
+// dialog弹窗按钮的样式重置
+.van-dialog {
+  .van-button.van-button--default {
+    color: #333;
+  }
+}
+
+// toast提示的样式
+.van-toast {
+  color: #fff;
+
+  .van-toast__text {
+    color: #fff;
+  }
+}
